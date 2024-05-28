@@ -1,0 +1,15 @@
+do GlobalPlayer.on_chatting()
+join npc1 1
+npc1: I want fishes, dude
+npc1: My family is hungry because we voted to Alberto Fernandez
+join fish 3
+npc1: Here, search for this.
+leave fish [animation="Fade Out Down"]
+npc1: I'll be listening to CFK's 90th cadena nacional.
+- Zurdito de mierda
+	npc1: suck my pija, pelotudo
+- Viva la libertad, carajo!
+	npc1: *Angry npc noices*
+- Aguante Marxx
+	Yeah, dude!
+do GlobalPlayer.off_chatting()

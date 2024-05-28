@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://g2qc4nv5h4v6"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_xdutf"]
+[ext_resource type="Texture2D" uid="uid://b4sohde7fv4u8" path="res://assets/114424.png" id="2_vk0a4"]
+[ext_resource type="PackedScene" uid="uid://bbmh30sx0e44x" path="res://scenes/transition.tscn" id="3_8lxea"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xdutf")
+
+[node name="Transition" parent="." instance=ExtResource("3_8lxea")]
+z_index = 20
+position = Vector2(-24, -11)
+scale = Vector2(1.75, 1.75)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 535.0
+offset_right = 267.0
+offset_bottom = 681.0
+scale = Vector2(1.75, 1.75)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+text = "Play"
+
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath(".")
+text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(632.5, 400.5)
+scale = Vector2(0.6505, 0.675833)
+texture = ExtResource("2_vk0a4")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
